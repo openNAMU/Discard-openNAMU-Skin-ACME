@@ -41,10 +41,11 @@
                     <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse" type="button">
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
-                        <span class="icon-bar"></span></button>
-                        <a class="navbar-brand" href="/">
-                            {{imp[1]}}
-                        </a>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/" style="margin-top: 30px;">
+                        {{imp[1]}}
+                    </a>
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
@@ -53,27 +54,51 @@
                                 <input style="display: inline-block;" class="form-control search" type="search" name="search" placeholder="Search" id="searchInput" autocomplete="off">
                             </form>                
                         </li>
+                        <li>
+                            <a href="/recent_changes">
+                                <i class="fa fa-refresh" aria-hidden="true"></i>
+                                <span id="mobile">최근 변경</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/recent_discuss">
+                                <i class="fa fa-comment" aria-hidden="true"></i>
+                                <span id="mobile">최근 토론</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/random">
+                                <i class="fa fa-random" aria-hidden="true"></i>
+                                <span id="mobile">무작위</span>
+                            </a>
+                        </li>
                         <li class="dropdown">
                             <a class="dropdown-toggle" data-close-others="false" data-delay="0" data-hover="dropdown" data-toggle="dropdown" href="javascript:void(0);">
                                 <i class="fa fa-plus-circle" aria-hidden="true"></i>
-                                <span id="mobile">도구</span>
+                                <span id="mobile">나머지</span>
                                 <i class="fa fa-angle-down"></i>
                             </a>
                             <ul aria-labelledby="" role="menu" class="dropdown-menu">
-                                <li id="t-bell">
-                                    <a href="특수:필요한문서">
-                                        <i class="fa fa-bell" aria-hidden="true"></i>
-                                        작성 필요
+                                <li>
+                                    <a href="/user">
+                                        % if(imp[3] == 1):
+                                            <i class="fa fa-user" aria-hidden="true"></i>
+                                        % elif(imp[3] == 0):
+                                            <i class="fa fa-user-times" aria-hidden="true"></i>
+                                        % else:
+                                            <i class="fa fa-user-secret" aria-hidden="true"></i>
+                                        % end
+                                        사용자
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/other">
+                                        <i class="fa fa-cogs" aria-hidden="true"></i>
+                                        기타
                                     </a>
                                 </li>
                             </ul>
-                        </li>  
-                        <li id="pt-login">
-                            <a href="">
-                                <i class="fa fa-sign-in" aria-hidden="true"></i>
-                                <span id="mobile">로그인</span>
-                            </a>
-                        </li>                
+                        </li>         
                     </ul>
                 </div>
             </div>
@@ -91,15 +116,17 @@
                     </div>
                     % if(not menu == 0):
                         <div class="col-lg-8 col-sm-8">
-                            <ol class="breadcrumb pull-right">
+                            <ol class="breadcrumb pull-right">             
                                 % for sub_d in menu:
-                                    % if(sub_d[1] == 1):
-                                        <a class="menu-item" href="/{{sub_d[0]}}" id="open">토론</a>
-                                    % elif(sub_d[1] == 0):
-                                        <a class="menu-item" href="/{{sub_d[0]}}">토론</a>
-                                    % else:
-                                        <a class="menu-item" href="/{{sub_d[0]}}">{{sub_d[1]}}</a>
-                                    % end
+                                    <li style="margin: 0;">
+                                        % if(sub_d[1] == 1):
+                                            <a class="menu-item" href="/{{sub_d[0]}}" id="open">토론</a>
+                                        % elif(sub_d[1] == 0):
+                                            <a class="menu-item" href="/{{sub_d[0]}}">토론</a>
+                                        % else:
+                                            <a class="menu-item" href="/{{sub_d[0]}}">{{sub_d[1]}}</a>
+                                        % end
+                                    </li>
                                 % end
                             </ol>
                         </div>
@@ -133,8 +160,8 @@
                 <div class="row">
                     <div class="copyright">
                         {{!imp[2]}}
-                        <a href="https://shapebootstrap.net">
-                            <img style="margin-right: 10px; margin-top:5px; margin-bottom: 20px;" class="pull-right" src="https://shapebootstrap.net/templates/default/images/presets/preset1/logo.png">
+                        <a href="https://themehunt.com/" class="pull-right">
+                            <span style="margin-right: 10px; margin-top:5px; padding-bottom: 20px;">themehunt</span>
                         </a>    
                     </div>
                 </div>

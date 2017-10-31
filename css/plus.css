@@ -10,12 +10,32 @@ li {
     margin-left: 20px;
 }
 
+.nav.navbar-nav li {
+    margin: 0;
+}
+
 .btn.btn-secondary.tools-btn.dropdown-toggle {
     height: 34px;
 }
 
 sub, sup {
     line-height: 1.6rem;
+}
+
+textarea {
+    border: 1px solid #e1e8ed;
+    padding: 5px;
+    border-radius: 3px;
+    background: white;
+    box-shadow: 0 2px 5px rgba(50,50,50,0.1);
+}
+
+select {
+    font-size: 16px;
+}
+
+.btn.btn-primary {
+    margin: 0;
 }
 
 #inside {
