@@ -19,6 +19,11 @@
         <script src='https://www.google.com/recaptcha/api.js'></script>
         <style>{{!imp[4]}}</style>
         <script>{{!imp[5]}}</script>
+        <meta name="twitter:creator" content="@{{imp[1]}}">
+        <meta name="twitter:title" content="{{imp[0]}}">
+        <meta name="twitter:site" content="@{{imp[1]}}">
+        <meta name="twitter:card" content="summary">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <script>
             function folding(num) {
                 var fol = document.getElementById('folding_' + num);
