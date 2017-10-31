@@ -38,7 +38,7 @@
     }
 
     .head-section .nav li .dropdown-menu li a:hover, .head-section .nav li .dropdown-menu li.active a {
-        color: #FFA500 !important;
+        color: rgb(44, 62, 80) !important;
     }
 
     .purchase-btn, .about-testimonial {
