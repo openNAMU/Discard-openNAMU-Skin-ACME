@@ -176,7 +176,7 @@ blockquote {
     display:table;
     border:2px dashed #ccc;
     border-left:5px solid #4188F1;
-    background-image: url('/views/liberty/img/quote.png');
+    background-image: url('/views/acme/img/quote.png');
     background-position:calc(100% - 10px) 10px;
     background-repeat:no-repeat;
     background-size:25px;
@@ -353,15 +353,6 @@ a.out_link::before {
     color: green;
     content: "\f14c";
     font-family: FontAwesome;
-}
-
-.Liberty .nav-wrapper .navbar, .Liberty .content-wrapper {
-    max-width: 1024px;
-}
-
-.Liberty .content-wrapper .liberty-content {
-    margin: auto;
-    margin-right: 0;
 }
 
 #open {
