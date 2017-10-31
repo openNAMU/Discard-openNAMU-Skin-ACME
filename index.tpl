@@ -161,7 +161,7 @@
                     <div class="copyright">
                         {{!imp[2]}}
                         <span class="pull-right" style="margin-right: 10px; margin-top:5px; padding-bottom: 20px;">
-                            <a style="background: white;" href="https://github.com/2DU/openNAMU"><img src="/views/acme/img/on2.png" width="100px"></a> <a href="https://themehunt.com/">themehunt</a>
+                            <a href="https://github.com/2DU/openNAMU"><img style="background: white;" src="/views/acme/img/on2.png" width="100px"></a> <a href="https://themehunt.com/">themehunt</a>
                         </span>    
                     </div>
                 </div>
