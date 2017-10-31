@@ -160,9 +160,9 @@
                 <div class="row">
                     <div class="copyright">
                         {{!imp[2]}}
-                        <a href="https://themehunt.com/" class="pull-right">
-                            <span style="margin-right: 10px; margin-top:5px; padding-bottom: 20px;">themehunt</span>
-                        </a>    
+                        <span class="pull-right" style="margin-right: 10px; margin-top:5px; padding-bottom: 20px;">
+                            <a style="background: white;" href="https://github.com/2DU/openNAMU"><img src="/views/liberty/img/on2.png" width="100px"></a> <a href="https://themehunt.com/">themehunt</a>
+                        </span>    
                     </div>
                 </div>
             </div>
