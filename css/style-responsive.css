@@ -76,7 +76,7 @@ ul {
     text-decoration: none;
 }
 
-label, span, body, strong, b, div, h1, h2, h3, h4, h5, h6, h7, input { 
+label, span, body, strong, b, div, h1, h2, h3, h4, h5, h6, input { 
     font-family: "helvetica", "Noto Sans Japanese", "나눔고딕", "맑은 고딕", "Nanum Gothic", "sans-serif"; 
 }
 
@@ -210,6 +210,7 @@ input {
 
 .breadcrumbs h1 {
     word-break: break-all;
+    border: none;
 }
 
 #back_title {
@@ -484,15 +485,15 @@ textarea {
     width: 100%;
 }
 
-a.not_thing {
+#not_thing {
     color: #bf4c4c;
 }
 
-a.out_link {
+#out_link {
     color: #008000;
 }
 
-a.out_link::before {
+#out_link::before {
     padding: 0px;
     background: transparent;
     color: green;
@@ -507,6 +508,8 @@ a.out_link::before {
 h1, h2, h3, h4, h5, h6 {
     margin-bottom: 10px;
     margin-top: 10px;
+    border-bottom: 1px solid #CCC;
+    padding-bottom: 5px;
 }
 
 .navbar-brand {
@@ -559,3 +562,8 @@ table#toron tbody tr td {
 ul#redirect {
     margin-bottom: 0;
 }
+
+html, body { 
+    max-width: 100%; 
+    overflow-x: hidden; 
+} 
