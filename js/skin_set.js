@@ -1,79 +1,176 @@
-// 쿠키 생성
-function setCookie(name, value, expiredays) {
-    var cookie = name + "=" + escape(value) + "; path=/;"
-    if (typeof expiredays != 'undefined') {
-        var todayDate = new Date();
-        todayDate.setDate(todayDate.getDate() + expiredays);
-        cookie += "expires=" + todayDate.toGMTString() + ";"
-    }
-    document.cookie = cookie;
-}
- 
-// 쿠키 획득
-function getCookie(name) {
-    name += "=";
-    var cookie = document.cookie;
-    var startIdx = cookie.indexOf(name);
-    if (startIdx != -1) {
-        startIdx += name.length;
-        var endIdx = cookie.indexOf(";", startIdx);
-        if (endIdx == -1) {
-            endIdx = cookie.length;
-            return unescape(cookie.substring(startIdx, endIdx));
-        }
-    }
-    return null;
-}
- 
-// 쿠키 삭제
-function deleteCookie(name) {
-    setCookie(name, "", -1);
-}
-
-// http://vip00112.tistory.com/33
-
 function get_post() {
-    console.log("test");
+    check = document.getElementById('strike');
+    if(check.value === 'normal') {
+        document.cookie = 'del_strike=0;';
+    } else if(check.value === 'change') {
+        document.cookie = 'del_strike=1;';
+    } else {
+        document.cookie = 'del_strike=2;';
+    }
+
+    check = document.getElementById('bold');
+    if(check.value === 'normal') {
+        document.cookie = 'del_bold=0;';
+    } else if(check.value === 'change') {
+        document.cookie = 'del_bold=1;';
+    } else {
+        document.cookie = 'del_bold=2;';
+    }
+
+    check = document.getElementById('include');
+    if(check.checked === true) {
+        document.cookie = 'include_link=true;';
+    } else {
+        document.cookie = 'include_link=false;';
+    }
 
     check = document.getElementById('dark');
-    if(check.checked == true) {
-        setCookie("set_dark", "1");
-        console.log("check");
+    if(check.checked === true) {
+        document.cookie = 'dark_mode=true;';
     } else {
-        deleteCookie("set_dark");
-        console.log("delete");
+        document.cookie = 'dark_mode=false;';
     }
 
-    console.log(getCookie("set_dark"));
+    history.go(0);
 }
 
-if(getCookie("set_dark") != "1") {
-    document.getElementById('set_dark').disabled = true;
+function regex_data(data) {
+    r_data = new RegExp('(?:^|; )' + data + '=([^;]*)')
+
+    return r_data;
 }
 
-$(document).ready(function() {
-    if(window.location.pathname == "/skin_set") {
-        title = document.getElementById("fix_title");
-        data = document.getElementById("fix_data");
+cookies = document.cookie;
+
+function main_load() {
+    head_data = document.querySelector('head');
+    if(cookies.match(regex_data('del_strike'))) {
+        if(cookies.match(regex_data('del_strike'))[1] === '1') {
+            head_data.innerHTML += '<style>s { text-decoration: none; } s:hover { background-color: transparent; }</style>';
+        } else if(cookies.match(regex_data('del_strike'))[1] === '2') {
+            head_data.innerHTML += '<style>s { display: none; }</style>';
+        }
+    }
+
+    if(cookies.match(regex_data('del_bold'))) {
+        if(cookies.match(regex_data('del_bold'))[1] === '1') {
+            head_data.innerHTML += '<style>b { font-weight: normal; }</style>';
+        } else if(cookies.match(regex_data('del_bold'))[1] === '2') {
+            head_data.innerHTML += '<style>b { display: none; }</style>';
+        }
+    }
+
+    if(
+        cookies.match(regex_data('include_link')) &&
+        cookies.match(regex_data('include_link'))[1] === 'true'
+    ) {
+        head_data.innerHTML += '<style>#include_link { display: inline; }</style>';
+    }
+
+    if(
+        cookies.match(regex_data('dark_mode')) &&
+        cookies.match(regex_data('dark_mode'))[1] === 'true'
+    ) { } else {
+        document.getElementById('set_dark').disabled = true; 
+    }
+}
+
+main_load();
+
+window.onload = function () {
+    if(window.location.pathname === '/skin_set') {
+        document.getElementById("fix_title").innerHTML = '<h1>Skin settings</h1>';
+        document.title = document.title.replace(/.*(\- .*)$/, "Skin settings $1");
         
-        get_title = "Skin Setting";
-
+        data = document.getElementById("fix_data");
         set_data = {};
-        set_data["dark"] = "";        
 
-        if(getCookie("set_dark") == "1") {
+        if(cookies.match(regex_data('del_strike'))) {
+            if(cookies.match(regex_data('del_strike'))[1] === '0') {
+                set_data["strike"] = ' \
+                    <option value="normal">Default</option> \
+                    <option value="change">Change to normal text</option> \
+                    <option value="delete">Delete</option> \
+                ';
+            } else if(cookies.match(regex_data('del_strike'))[1] === '1') {
+                set_data["strike"] = ' \
+                    <option value="change">Change to normal text</option> \
+                    <option value="normal">Default</option> \
+                    <option value="delete">Delete</option> \
+                ';
+            } else {
+                set_data["strike"] = ' \
+                    <option value="delete">Delete</option> \
+                    <option value="normal">Default</option> \
+                    <option value="change">Change to normal text</option> \
+                ';
+            }
+        } else {
+            set_data["strike"] = ' \
+                <option value="normal">Default</option> \
+                <option value="change">Change to normal text</option> \
+                <option value="delete">Delete</option> \
+            ';
+        }
+
+        if(cookies.match(regex_data('del_bold'))) {
+            if(cookies.match(regex_data('del_bold'))[1] === '0') {
+                set_data["bold"] = ' \
+                    <option value="normal">Default</option> \
+                    <option value="change">Change to normal text</option> \
+                    <option value="delete">Delete</option> \
+                ';
+            } else if(cookies.match(regex_data('del_bold'))[1] === '1') {
+                set_data["bold"] = ' \
+                    <option value="change">Change to normal text</option> \
+                    <option value="normal">Default</option> \
+                    <option value="delete">Delete</option> \
+                ';
+            } else {
+                set_data["bold"] = ' \
+                    <option value="delete">Delete</option> \
+                    <option value="normal">Default</option> \
+                    <option value="change">Change to normal text</option> \
+                ';
+            }
+        } else {
+            set_data["bold"] = ' \
+                <option value="normal">Default</option> \
+                <option value="change">Change to normal text</option> \
+                <option value="delete">Delete</option> \
+            ';
+        }
+        
+        if(
+            cookies.match(regex_data('include_link')) &&
+            cookies.match(regex_data('include_link'))[1] === 'true'
+        ) {
+            set_data["include"] = "checked";
+        }
+
+        if(
+            cookies.match(regex_data('dark_mode')) &&
+            cookies.match(regex_data('dark_mode'))[1] === 'true'
+        ) {
             set_data["dark"] = "checked";
         }
 
-        get_data =  ' \
-                        <input ' + set_data["dark"] + ' type="checkbox" id="dark" name="dark" value="dark"> Dark Mode \
-                        <hr> \
-                        <button onclick="get_post(); window.location.reload(true);">Save</button> \
-                    ';
-
-        document.title = document.title.replace(/.*(\- .*)$/, get_title + " $1");
-
-        title.innerHTML = get_title;
-        data.innerHTML = get_data;
+        data.innerHTML = ' \
+            <h2>Strike</h2> \
+            <hr class="main_hr"> \
+            <select id="strike" name="strike"> \
+                ' + set_data["strike"] + ' \
+            </select> \
+            <h2>Bold</h2> \
+            <select id="bold" name="bold"> \
+                ' + set_data["bold"] + ' \
+            </select> \
+            <h2>Other</h2> \
+            <input ' + set_data["include"] + ' type="checkbox" id="include" name="include" value="include"> Using include link \
+            <hr class="main_hr"> \
+            <input ' + set_data["dark"] + ' type="checkbox" id="dark" name="dark" value="dark"> Dark mode \
+            <hr class="main_hr"> \
+            <button onclick="get_post();">Save</button> \
+        ';
     }
-});
+}
