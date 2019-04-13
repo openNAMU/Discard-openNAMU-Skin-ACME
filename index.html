@@ -4,10 +4,13 @@
         <meta charset="utf-8">
         <title>{{imp[0]}} - {{imp[1][0]}}</title>
         {{imp[3][3]|safe}}
+        <link   rel="stylesheet" 
+                href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+                integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+                crossorigin="anonymous">
         <link rel="stylesheet" href="/views/acme/css/bootstrap.min.css">
         <link rel="stylesheet" href="/views/acme/css/style.css">
         <link rel="stylesheet" href="/views/acme/css/style-responsive.css">
-        <link rel="stylesheet" href="/views/acme/css/font-awesome/css/font-awesome.min.css">
         <link rel="stylesheet" href="/views/acme/css/set_css/dark.css" id="set_dark">
         <script src="/views/acme/js/jquery.min.js"></script>
         <script src="/views/acme/js/bootstrap.min.js"></script>
@@ -50,7 +53,7 @@
                             <ul role="menu" class="dropdown-menu">
                                 <li>
                                     <a href="/recent_changes">
-                                        <i class="fa fa-refresh" aria-hidden="true"></i>
+                                        <i class="fa fa-edit" aria-hidden="true"></i>
                                         {{'edit'|load_lang}}
                                     </a>
                                 </li>
@@ -64,7 +67,7 @@
                         </li>
                         <li class="dropdown">
                             <a class="dropdown-toggle" data-close-others="false" data-delay="0" data-hover="dropdown" data-toggle="dropdown" href="javascript:void(0);">
-                                <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                                <i class="fa fa-align-justify" aria-hidden="true"></i>
                                 {{'other'|load_lang}}
                                 <i class="fa fa-angle-down"></i>
                             </a>
