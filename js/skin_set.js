@@ -115,10 +115,10 @@ window.onload = function () {
             language = "en-US";
         }
 
-        document.getElementById("main_top").innerHTML = '<h1>' + set_language[language]['skin_setting'] + '</h1>';
+        document.getElementById("fix_title").innerHTML = '<h1>' + set_language[language]['skin_setting'] + '</h1>';
         document.title = document.title.replace(/.*(\- .*)$/, set_language[language]['skin_setting'] + " $1");
         
-        data = document.getElementById("main_data");
+        data = document.getElementById("fix_data");
         set_data = {};
 
         if(cookies.match(regex_data('del_strike'))) {
