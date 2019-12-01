@@ -24,23 +24,15 @@ function get_post() {
         document.cookie = 'include_link=0;';
     }
 
-    check = document.getElementById('dark');
+    check = document.getElementById('invert');
     if(check.checked === true) {
-        document.cookie = 'dark_mode=true;';
+        document.cookie = 'invert=1;';
     } else {
-        document.cookie = 'dark_mode=false;';
+        document.cookie = 'invert=0;';
     }
 
     history.go(0);
 }
-
-function regex_data(data) {
-    r_data = new RegExp('(?:^|; )' + data + '=([^;]*)')
-
-    return r_data;
-}
-
-cookies = document.cookie;
 
 function main_load() {
     head_data = document.querySelector('head');
@@ -68,40 +60,43 @@ function main_load() {
     }
 
     if(
-        cookies.match(regex_data('dark_mode')) &&
-        cookies.match(regex_data('dark_mode'))[1] === 'true'
-    ) { } else {
-        document.getElementById('set_dark').disabled = true; 
+        cookies.match(regex_data('invert')) &&
+        cookies.match(regex_data('invert'))[1] === '1'
+    ) {
+        head_data.innerHTML += '<link rel="stylesheet" href="/views/acme/css/set_css/dark.css?ver=1">';
     }
 }
 
+function regex_data(data) {
+    return new RegExp('(?:^|; )' + data + '=([^;]*)');
+}
+
+cookies = document.cookie;
 main_load();
 
-window.onload = function () {
+function skin_set() {
     if(window.location.pathname === '/skin_set') {
         set_language = {
             "en-US" : {
                 "default" : "Default",
                 "change_to_normal" : "Change to normal text",
                 "delete" : "Delete",
-                "skin_setting" : "Skin settings",
                 "include_link" : "Using include link",
                 "save" : "Save",
                 "strike" : "Strike",
                 "bold" : "Bold",
                 "other" : "Other",
-                "dark_mode" : "Dark mode"
+                "darkmode" : "Darkmode"
             }, "ko-KR" : {
                 "default" : "기본값",
                 "change_to_normal" : "일반 텍스트로 변경",
                 "delete" : "삭제",
-                "skin_setting" : "스킨 설정",
                 "include_link" : "틀 링크 사용",
                 "save" : "저장",
                 "strike" : "취소선",
                 "bold" : "볼드체",
                 "other" : "기타",
-                "dark_mode" : "다크 모드"
+                "darkmode" : "다크모드"
             }
         }
 
@@ -114,11 +109,8 @@ window.onload = function () {
         if(!language in set_language) {
             language = "en-US";
         }
-
-        document.getElementById("fix_title").innerHTML = '<h1>' + set_language[language]['skin_setting'] + '</h1>';
-        document.title = document.title.replace(/.*(\- .*)$/, set_language[language]['skin_setting'] + " $1");
         
-        data = document.getElementById("fix_data");
+        data = document.getElementById("main_skin_set");
         set_data = {};
 
         if(cookies.match(regex_data('del_strike'))) {
@@ -185,10 +177,10 @@ window.onload = function () {
         }
 
         if(
-            cookies.match(regex_data('dark_mode')) &&
-            cookies.match(regex_data('dark_mode'))[1] === '1'
+            cookies.match(regex_data('invert')) &&
+            cookies.match(regex_data('invert'))[1] === '1'
         ) {
-            set_data["dark"] = "checked";
+            set_data["invert"] = "checked";
         }
 
         data.innerHTML = ' \
@@ -204,7 +196,7 @@ window.onload = function () {
             <h2>' + set_language[language]['other'] + '</h2> \
             <input ' + set_data["include"] + ' type="checkbox" id="include" name="include" value="include"> ' + set_language[language]['include_link'] + ' \
             <hr class="main_hr"> \
-            <input ' + set_data["dark"] + ' type="checkbox" id="dark" name="dark" value="dark"> ' + set_language[language]['dark_mode'] + ' \
+            <input ' + set_data["invert"] + ' type="checkbox" id="invert" name="invert" value="invert"> ' + set_language[language]['darkmode'] + ' \
             <hr class="main_hr"> \
             <button onclick="get_post();">' + set_language[language]['save'] + '</button> \
         ';
