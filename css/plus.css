@@ -348,3 +348,11 @@ hr {
 #topic_color {
     color: limegreen;
 }
+
+#r_logo { 
+    margin-top: 30px;
+}
+
+button.navbar-toggle {
+    margin-top: 30px;
+}

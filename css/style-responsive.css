@@ -78,7 +78,7 @@ ul {
 }
 
 label, span, body, strong, b, div, h1, h2, h3, h4, h5, h6, input { 
-    font-family: "helvetica", "Noto Sans Japanese", "나눔고딕", "맑은 고딕", "Nanum Gothic", "sans-serif"; 
+    font-family: "맑은 고딕", "sans-serif"; 
 }
 
 pre { 
