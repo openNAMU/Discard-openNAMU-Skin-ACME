@@ -59,3 +59,8 @@ textarea, input {
 pre#syntax {
     background: black;
 }
+
+select {
+    background: black;
+    color: white;
+}
