@@ -346,3 +346,7 @@ hr {
 button.navbar-toggle {
     margin-top: 30px;
 }
+
+a { 
+    color: dodgerblue; 
+}
