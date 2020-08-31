@@ -106,7 +106,6 @@ textarea {
 }
 
 #syntax {
-    margin-bottom: -10px;
     background-color: #f0f0f0;
 }
 
@@ -220,15 +219,6 @@ div.scroll-buttons a {
     text-align: center;
     background: rgba(26,26,26,0.9);
     border-bottom: 0;
-}
-
-#footnote-list {
-    margin-bottom: -20px;
-    display: block;
-}
-
-#footnote {
-    margin-bottom: -10px;
 }
 
 div.scroll-buttons {
