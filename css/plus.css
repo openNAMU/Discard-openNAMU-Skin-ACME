@@ -14,10 +14,6 @@ input {
     box-shadow: 0 2px 5px rgba(50,50,50,0.1);
 }
 
-#toc ul {
-    margin: .3em 0;
-}
-
 #searchInput {
     box-shadow: 0 2px 5px rgba(50,50,50,0.1);
 }
@@ -41,11 +37,6 @@ input#searchInput:focus {
     word-break: break-all;
 }
 
-
-input {
-    max-width: 100%;
-}
-
 .breadcrumbs h1 {
     word-break: break-all;
     border: none;
@@ -62,11 +53,6 @@ input {
 .form-control.input-sm {
     font-size: 14px;
     color: black;
-}
-
-li {
-    margin-left: 20px;
-    margin-bottom: 2px;
 }
 
 .nav.navbar-nav li {
@@ -95,25 +81,6 @@ textarea {
 
 .btn {
     transition: all .3s ease;
-}
-
-#inside {
-    color: green;
-}
-
-.hljs {
-    background: #f5f8fa;
-}
-
-#syntax {
-    background-color: #f0f0f0;
-}
-
-#cate {
-    width: 100%;
-    border: 1px solid #777;
-    padding: 5px;
-    margin-top: 1em;
 }
 
 select {
@@ -165,43 +132,6 @@ h1#main_title {
 a.navbar-brand {
     width: auto;
     margin-right: 20px;
-}
-
-blockquote {
-    padding: 1em calc(2em + 25px) 1em 1em;
-    margin: 1em 0em 0em;
-    background: #eeeeee;
-    display: block;
-    border: 2px dashed #ccc;
-    border-left: 5px solid #2C3E50;
-    background-image: url('/views/acme/img/quote.png');
-    background-position: calc(100% - 10px) 10px;
-    background-repeat: no-repeat;
-    background-size: 25px;
-    font-size: 14px;
-}
-
-img, iframe {
-    max-width: 100%;
-}
-
-table {
-    background-color: #f5f5f5;
-    border-collapse: collapse;
-}
-
-td {
-    padding: 5px 10px;
-    border: 1px solid #dddddd;
-}
-
-#toc {
-    border: 1px solid #ccc;
-    display: inline-block;
-    padding: 20px;
-    font-size: 15px;
-    margin-top: 20px;
-    margin-bottom: 20px;
 }
 
 .scroll-buttons a:link, .scroll-buttons a:visited {
@@ -257,21 +187,6 @@ div.scroll-buttons a {
     margin-top: 5px;
 }
 
-#yosolo {
-    width: 33.33%;
-    text-align: center;
-}
-
-@media (max-width: 768px) {
-    table {
-        min-width: 100%;
-    }
-}
-
-textarea {
-    width: 100%;
-}
-
 h1, h2, h3, h4, h5, h6 {
     margin-bottom: 10px;
     margin-top: 10px;
@@ -317,36 +232,10 @@ input[type="checkbox"] {
     padding-bottom: 50px;
 }
 
-table#toron tbody tr td {
-    padding-top: 6px;
-    padding-bottom: 6px;
-}
-
-ul#redirect {
-    margin-bottom: 0;
-}
-
-html, body { 
-    max-width: 100%;
-}
-
-hr {
-    margin-top: 5px;
-    margin-bottom: 5px;
-}
-
-#topic_color {
-    color: limegreen;
-}
-
 #r_logo { 
     margin-top: 30px;
 }
 
 button.navbar-toggle {
     margin-top: 30px;
-}
-
-a { 
-    color: dodgerblue; 
 }
