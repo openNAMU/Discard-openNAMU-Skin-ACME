@@ -2,7 +2,11 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>{{imp[0]}} - {{imp[1][0]}}</title>
+        {% if imp[3][0] != 0 %}
+            <title>{{imp[0]}} {{imp[3][0]}} - {{imp[1][0]}}</title>
+        {% else %}
+            <title>{{imp[0]}} - {{imp[1][0]}}</title>
+        {% endif %}
         <link   rel="stylesheet" 
                 href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
                 integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
@@ -18,9 +22,15 @@
         <script>main_load(); window.addEventListener('DOMContentLoaded', function() { skin_set(); });</script>
         {{imp[1][5]|safe}}
         {{imp[2][3]|safe}}
-        <meta name="title" content="{{imp[0]}} - {{imp[1][0]}}">
-        <meta name="keywords" content="{{imp[1][0]}}">
-        <meta name="description" content="{{data|cut_100}}">
+        {% if imp[3][0] != 0 %}
+            <meta name="title" content="{{imp[0]}}{{imp[3][0]}} - {{imp[1][0]}}">
+        {% else %}
+            <meta name="title" content="{{imp[0]}} - {{imp[1][0]}}">
+        {% endif %}
+        <meta name="keywords" content="{{imp[0]}}">
+        {% if imp[2][12] != 0 and imp[2][12] == 'w' %}
+            <meta name="description" content="{{data|cut_100}}">
+        {% endif %}
         <link rel="shortcut icon" href="/views/acme/img/on.ico">
         <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
